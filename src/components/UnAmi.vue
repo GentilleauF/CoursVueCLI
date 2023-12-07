@@ -1,7 +1,16 @@
 <script>
 
 export default {
-    props : ["name", "phone", "email", "premium"],
+    // props : ["name", "phone", "email", "premium"],
+
+    props : {
+        name:{type: String, required:true },
+        phone:{type: String, required:true },
+        email:{type: String, required:true },
+        premium:{type: String, required:false, default:"0", validator: (value) => {return value==='1' || value==='0'} }
+
+    },
+
     data(){
         return{
             detailsVisibles:false,
@@ -17,6 +26,10 @@ export default {
     methods:{
         afficherDetails(){
             this.detailsVisibles = !this.detailsVisibles;
+        },
+
+        fonctionValidator(value){
+            return value
         },
 
         afficherPremium() {
