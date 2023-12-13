@@ -7,7 +7,7 @@ export default {
         name:{type: String, required:true },
         phone:{type: String, required:true },
         email:{type: String, required:true },
-        premium:{type: String, required:false, default:"0", validator: (value) => {return value==='1' || value==='0'} }
+        premium:{type: Boolean , required:false, default:false }
 
     },
 
@@ -23,21 +23,14 @@ export default {
             premiumData: this.premium
         }
     },
+
     methods:{
         afficherDetails(){
             this.detailsVisibles = !this.detailsVisibles;
         },
 
-        fonctionValidator(value){
-            return value
-        },
-
         afficherPremium() {
-            if (this.premiumData == 1) {
-                this.premiumData =0
-            } else {
-                this.premiumData = 1
-            }
+            this.premiumData = !this.premiumData;
         }
     },
 }
@@ -48,7 +41,7 @@ export default {
     <div class="container my-1">
         <ul class="list-group">
             <h2 class="list-group-item">{{name}}</h2> 
-            <h2 class="list-group-item">{{premiumData==1 ? "Ami Premium" : "Ami nul"}}</h2> 
+            <h2 class="list-group-item">{{premiumData? "Ami Premium" : "Ami nul"}}</h2> 
             <button @click="afficherPremium" class="btn btn-danger" >Premium</button>
             <button @click="afficherDetails" class="btn btn-primary">Voir Détails</button>           
             <ul v-if="detailsVisibles" class="list-group">

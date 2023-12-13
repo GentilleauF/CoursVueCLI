@@ -2,8 +2,13 @@
   <!-- <div class="container"> -->
     <h1 class="text-center">Les Amis</h1>
     <ul class="list-group">
-      <un-ami name='jo' phone="05256255" email="ndedeonfe" premium="1"></un-ami>
-      <un-ami name='tom' phone="056255" email="noezdonfe" premium="0"></un-ami>
+        <un-ami v-for="unAmi in lesAmis " 
+        :key=unAmi.id
+        :name=unAmi.name 
+        :phone=unAmi.phone 
+        :email=unAmi.email 
+        :premium=unAmi.premium></un-ami>
+      <!--  <un-ami name='tom' phone="056255" email="noezdonfe" premium="0"></un-ami> -->
 
     </ul>
   <!-- </div> -->
