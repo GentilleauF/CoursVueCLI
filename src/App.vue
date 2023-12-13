@@ -7,7 +7,9 @@
         :name=unAmi.name 
         :phone=unAmi.phone 
         :email=unAmi.email 
-        :premium=unAmi.premium></un-ami>
+        :premium=unAmi.premium
+        @mon-event-premium="afficherStatusPremium"
+        ></un-ami>
       <!--  <un-ami name='tom' phone="056255" email="noezdonfe" premium="0"></un-ami> -->
 
     </ul>
@@ -24,15 +26,30 @@ export default{
             name: 'COCO L ASTICOT',
             phone: '01234 5678 991',
             email: 'coco@lasticot.com',
+            premium: true
         },
         {
             id: 'janine',
             name: 'Janine DeLavega',
             phone: '09876 543 221',
             email: 'janine@delavega.com',
+            premium: false
+        },
+        {
+            id: 'janine',
+            name: 'Janine DeLavega',
+            phone: '09876 543 221',
+            email: 'janine@delavega.com',
+            premium: true
         },
     ],
     }
   },
+
+  methods:{
+    afficherStatusPremium (){
+      console.log("coucou");
+    }
+  }
 }
 </script>

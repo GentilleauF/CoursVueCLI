@@ -30,8 +30,11 @@ export default {
         },
 
         afficherPremium() {
-            this.premiumData = !this.premiumData;
+            this.$emit("mon-event-premium")
+            // this.premiumData = !this.premiumData;
         }
+
+
     },
 }
 </script>
