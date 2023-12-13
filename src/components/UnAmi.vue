@@ -1,7 +1,7 @@
 <script>
 
 export default {
-    // props : ["name", "phone", "email", "premium"],
+
 
     props : {
         name:{type: String, required:true },
@@ -9,6 +9,16 @@ export default {
         email:{type: String, required:true },
         premium:{type: Boolean , required:false, default:false },
         id:{type: String, required:true}
+    },
+    emits : {
+        'mon-event-premium': (id) => {
+            if (id){
+                return true
+            } else {
+                console.warn("id n'est pas defini")
+                return false
+            }
+        }
     },
 
     data(){
