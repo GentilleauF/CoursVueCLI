@@ -7,8 +7,8 @@ export default {
         name:{type: String, required:true },
         phone:{type: String, required:true },
         email:{type: String, required:true },
-        premium:{type: Boolean , required:false, default:false }
-
+        premium:{type: Boolean , required:false, default:false },
+        id:{type: String, required:true}
     },
 
     data(){
@@ -20,7 +20,7 @@ export default {
                 phone:'123 12346 24',
                 email:'jojo@barjo.com',
             },
-            premiumData: this.premium
+            // premiumData: this.premium
         }
     },
 
@@ -30,7 +30,7 @@ export default {
         },
 
         afficherPremium() {
-            this.$emit("mon-event-premium")
+            this.$emit("mon-event-premium", this.id)
             // this.premiumData = !this.premiumData;
         }
 
@@ -44,7 +44,7 @@ export default {
     <div class="container my-1">
         <ul class="list-group">
             <h2 class="list-group-item">{{name}}</h2> 
-            <h2 class="list-group-item">{{premiumData? "Ami Premium" : "Ami nul"}}</h2> 
+            <h2 class="list-group-item">{{premium? "Ami Premium" : "Ami nul"}}</h2> 
             <button @click="afficherPremium" class="btn btn-danger" >Premium</button>
             <button @click="afficherDetails" class="btn btn-primary">Voir Détails</button>           
             <ul v-if="detailsVisibles" class="list-group">

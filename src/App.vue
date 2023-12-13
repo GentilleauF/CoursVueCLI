@@ -8,6 +8,7 @@
         :phone=unAmi.phone 
         :email=unAmi.email 
         :premium=unAmi.premium
+        :id="unAmi.id"
         @mon-event-premium="afficherStatusPremium"
         ></un-ami>
       <!--  <un-ami name='tom' phone="056255" email="noezdonfe" premium="0"></un-ami> -->
@@ -36,10 +37,10 @@ export default{
             premium: false
         },
         {
-            id: 'janine',
-            name: 'Janine DeLavega',
+            id: 'janineBis',
+            name: 'Janine DeLavega Bis',
             phone: '09876 543 221',
-            email: 'janine@delavega.com',
+            email: 'janineBis@delavega.com',
             premium: true
         },
     ],
@@ -47,8 +48,11 @@ export default{
   },
 
   methods:{
-    afficherStatusPremium (){
-      console.log("coucou");
+    afficherStatusPremium (leIdDunAmi){
+      console.log('voila '+leIdDunAmi);
+      let unAmiIdentified = this.lesAmis.find((element) => element.id == leIdDunAmi);
+     
+      console.log(unAmiIdentified);
     }
   }
 }
