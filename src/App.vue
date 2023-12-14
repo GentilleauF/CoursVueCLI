@@ -1,8 +1,8 @@
 <template>
   <active-user 
-   :name="displayedName" 
-   :age="displayedAge" 
-   :id="'1'"
+   :name="monUtilisateur.name" 
+   :age="monUtilisateur.age" 
+   :id="monUtilisateur.id"
   ></active-user>
   <user-data @update-info="updateUser"></user-data>
 </template>
@@ -11,17 +11,19 @@
 export default {
   data() {
     return {
-      displayedName:'',
-      displayedAge:'',
-      id:''
+      monUtilisateur: {
+        name: 'Bob',
+        age: '200ans',
+        id: '1'
+      }
     };
   },
 
   methods: {
     updateUser(enteredName, enteredAge) {
-      this.id = new Date().toISOString(),
-      this.displayedName = enteredName;
-      this.displayedAge = enteredAge;
+      this.monUtilisateur.id = new Date().toISOString(),
+      this.monUtilisateur.name = enteredName;
+      this.monUtilisateur.age = enteredAge;
 
       console.log('ok');
     }
