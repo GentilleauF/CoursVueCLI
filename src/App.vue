@@ -14,6 +14,7 @@
       :premium="unAmi.premium"
       :id="unAmi.id"
       @mon-event-premium="afficherStatusPremium"
+      @delete="effacerAmi"
     ></un-ami>
     <!--  <un-ami name='tom' phone="056255" email="noezdonfe" premium="0"></un-ami> -->
   </ul>
@@ -71,8 +72,15 @@ export default {
     }
     console.log(newAmiContact);
     this.lesAmis.push(newAmiContact)
+  },
 
+  effacerAmi(unId) {
+    console.log(unId);
+    console.log(this.lesAmis);
+    this.lesAmis = this.lesAmis.filter((unePersonne) => unePersonne.id !== unId)
   }
+
+
   },
 
 };
